@@ -270,14 +270,14 @@ busuanzi:
 artalk_js:
   name: artalk
   file: dist/Artalk.js
-  version: 2.4.4
+  version: 2.5.3
   npm: true
   static: false
   cdnjs: true
 artalk_css:
   name: artalk
   file: dist/Artalk.css
-  version: 2.4.4
+  version: 2.5.3
   npm: true
   static: false
   cdnjs: true
@@ -320,7 +320,7 @@ waline_css:
   name: "@waline/client"
   cdnjs_name: waline
   file: dist/waline.css
-  version: 2.6.3
+  version: 2.15.5
   npm: true
   static: false
   cdnjs: true
@@ -328,7 +328,7 @@ waline_js:
   name: "@waline/client"
   cdnjs_name: waline
   file: dist/waline.js
-  version: 2.6.3
+  version: 2.15.5
   npm: true
   static: false
   cdnjs: true
@@ -436,3 +436,10 @@ pace_css:
   npm: true
   static: false
   cdnjs: true
+memos_carousel_js:
+  name: penndu
+  file: memos_carousel.js
+  version: 4.0.1
+  npm: true
+  static: false
+  cdnjs: false
