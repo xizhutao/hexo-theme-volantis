@@ -130,14 +130,14 @@ scroll_smooth: true
 ############################### Navigation Bar ############################### > start
 # 注意事项：建议规范全站路径 URL 最后带一个 "/" 例如 "about/"
 navbar:
-  visiable: auto # always, auto
+  visiable: always # always, auto
   logo: # choose [img] or [icon + title]
-    img: volantis-static/media/org.volantis/blog/Logo-NavBar@3x.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
-    icon:
-    title:
+    img: /images/avatar-circle.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
+    icon: 
+    title: 
   menu:
-    - name: 博客
-      icon: fa-solid fa-rss
+    - name: 首页
+      icon: fa-solid fa-house
       url: /
     - name: 分类
       icon: fa-solid fa-folder-open
@@ -145,16 +145,34 @@ navbar:
     - name: 标签
       icon: fa-solid fa-tags
       url: tags/
+    - name: 直达
+      icon: fa-solid fa-truck-fast
+      rows: 
+       - name: github
+         icon: fa-brands fa-github
+         url: https://github.com/xizhutao
+       - name: csdn
+         icon: fa-solid fa-copyright
+         url: https://blog.csdn.net/qq_44588612?type=blog
+       - name: npm
+         icon: fa-brands fa-npm
+         url: https://www.npmjs.com/settings/xizhutao/packages
     - name: 归档
       icon: fa-solid fa-archive
       url: archives/
-    - name: 友链
-      icon: fa-solid fa-link
-      url: friends/
-    - name: 关于
-      icon: fa-solid fa-info-circle
-      url: about/
-  search: Search...   # Search bar placeholder
+    # - name: 友链
+    #   icon: fa-solid fa-link
+    #   url: friends/
+    # - name: 关于
+    #   icon: fa-solid fa-info-circle
+    #   url: about/
+    - name: 暗黑模式 # 可自定义
+      icon: fa-solid fa-moon # 可自定义
+      toggle: darkmode
+  search: 搜索   # Search bar placeholder
+    # enable: true
+    # service: hexo  # hexo
+    # js: https://cdn.jsdelivr.net/xxxxxxxx/js/search/hexo.js
 ############################### Navigation Bar ############################### > end
 
 
@@ -164,39 +182,32 @@ cover:
   layout_scheme: dock # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
   display:
     home: true
-    archive: true
+    archive: false
     others: false # can be written in front-matter 'cover: true'
-  background: https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg
+  background: images/bg.jpeg
   # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
   logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
-  title: 'Volantis'
+  title: '欢迎访问 Json Xi 的博客'
   subtitle: ''
   search: A Wonderful Theme for Hexo # search bar placeholder
   features:
-    - name: 文档
-      icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f5c3.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
-      url: /v4/getting-started/
-    - name: 帮助
-      icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f516.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
-      url: faqs/
-    - name: 示例
-      icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f396.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg
-      url: /examples/
-    - name: 社区
-      icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f389.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg
-      url: /contributors/
-    - name: 博客
+    - name: 主页
       icon: #
       img: volantis-static/media/twemoji/assets/svg/1f4f0.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
-      url: /archives/
-    - name: 源码
+      url: /
+    - name: 分类
       icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f9ec.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
-      url: https://github.com/volantis-x/hexo-theme-volantis/
+      img: volantis-static/media/twemoji/assets/svg/1f5c3.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
+      url: categories/
+    - name: 标签
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f396.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg
+      url: tags/
+    - name: 归档
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f389.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg
+      url: archives/
+   
 ############################### Cover ############################### > end
 
 pages:
@@ -221,14 +232,14 @@ article:
     # show split line or not
     line_style: solid # hidden, solid, dashed, dotted
     # show author
-    author: false # true, false
+    author: true # true, false
     # show readmore button
     readmore: auto # auto, always
   # 文章详情页面的文章卡片本体布局方案
   body:
     # 文章顶部信息
     # 从 meta_library 中取
-    top_meta: [author, category, date, counter] #启用评论数量需在此添加
+    top_meta: [author, category, date, counter, wordcount] #启用评论数量需在此添加
     # 文章底部信息
     # 从 meta_library 中取
     bottom_meta: [updated, tags, share]
@@ -281,7 +292,7 @@ article:
          # 自定义版权组件：精细到文章的版权声明
         custom: false # 开启后替代上方内容的版权显示
         customData:
-          default: type1  # 默认授权声明
+          default: type3  # 默认授权声明
           #############################
           # 你可以在文章的 front-matter 覆盖默认版权声明
           # 配置示例（均可选）： 
@@ -315,17 +326,16 @@ article:
       # ----------------
       # 打赏组件 (for layout: post)
       donate:
-        enable: false
+        enable: true
         images:
-          - volantis-static/media/org.volantis/blog/qrcode/github@volantis.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
-          - volantis-static/media/org.volantis/blog/qrcode/github@volantis.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
+          - images/pay.jpeg # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
     # meta library
     meta_library:
       # 默认文章作者（可在 _data/author.yaml 中增加其他作者，并在 front-matter 中设置）
       # https://volantis.js.org/advanced-settings/#多人协同
       author:
-        avatar: volantis-static/media/org.volantis/blog/favicon/apple-touch-icon.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
-        name: 请设置文章作者
+        avatar: /images/avatar.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
+        name: Json Xi
         url: /
       # 文章创建日期
       date:
@@ -378,7 +388,7 @@ article:
 comments:
   title: <i class='fa-solid fa-comments'></i> 评论
   subtitle:
-  service: giscus
+  service: livere
   # 可选评论系统 #
 
   # artalk
@@ -387,7 +397,7 @@ comments:
   artalk:
     server: https://yours-artalk-domain    # 修改为自建的后端服务地址
     path:  # 全局评论地址
-    placeholder: # 评论占位
+    placeholder: 1234# 评论占位
     visitor: true # 是否显示文章阅读数
     latex: false # 启用 Latex 支持
     # artalk 有三类图片：1.上传至服务端 2.上传至服务端后利用upgit上传至图床 3.前端上传至图床（本配置为此类）
@@ -486,7 +496,7 @@ comments:
 
   # https://www.livere.com
   livere:
-    uid:
+    uid: MTAyMC81ODYxNy8zNTA3OQ==
 
   # Isso
   # https://posativ.org/isso/
@@ -552,9 +562,9 @@ comments:
 
 ############################### Sidebar ############################### > start
 sidebar:
-  position: right # left right
+  position: left # left right
   # 主页、分类、归档等独立页面
-  for_page: [blogger, category, tagcloud, donate]
+  for_page: [blogger, category, tagcloud , webinfo]
   # layout: docs/post 这类文章页面
   for_post: [toc]
   # 侧边栏组件库
@@ -564,21 +574,24 @@ sidebar:
     blogger:
       class: blogger
       display: [desktop, mobile] # [desktop, mobile]
-      avatar: volantis-static/media/org.volantis/blog/Logo-NavBar@3x.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
-      shape: rectangle # circle, rectangle
+      avatar: /images/avatar.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
+      shape: circle # circle, rectangle
       url: /about/
-      title:
-      subtitle:
+      title: XIZHUTAO
+      subtitle: 
       jinrishici: true # Poetry Today. You can set a string, and it will be displayed when loading fails.
       social:
-        - icon: fa-solid fa-rss
-          url: /atom.xml
-        - icon: fa-solid fa-envelope
-          url: mailto:me@xxx.com
-        - icon: fab fa-github
-          url: https://github.com/volantis-x/
-        - icon: fa-solid fa-headphones-alt
+        - icon: fa-solid fa-house
           url: /
+        - icon: fa-solid fa-envelope
+          url: mailto:1479069176@qq.com
+        - name: csdn
+          icon: fa-solid fa-copyright
+          url: https://blog.csdn.net/qq_44588612?type=blog
+        - icon: fab fa-github
+          url: https://github.com/xizhutao
+        # - icon: fa-solid fa-headphones-alt
+        #   url: /
     # ---------------------------------------
     # toc widget (valid only in articles)
     toc:
@@ -588,7 +601,7 @@ sidebar:
       header:
         icon: fa-solid fa-list
         title: 本文目录
-      list_number: false
+      list_number: true
       min_depth: 2
       max_depth: 5
     # ---------------------------------------
@@ -642,12 +655,12 @@ sidebar:
           text: '文章数目：'
           unit: '篇'
         runtime:
-          enable: false
+          enable: true
           data: '2020/01/01'    # 填写建站日期
           text: '已运行时间：'
           unit: '天'
         wordcount:
-          enable: false
+          enable: true
           text: '本站总字数：'   # 需要启用 wordcount
           unit: '字'
         visitcounter:
@@ -695,9 +708,9 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [aplayer, social, license, info, copyright]
+  layout: [aplayer, social,analytics, copyright]
   social:
-    - icon: #fa-solid fa-rss
+    - icon: fa-solid fa-rss #fa-solid fa-rss
       url:
     # or
     - img:
@@ -709,8 +722,8 @@ site_footer:
   source: https://github.com/volantis-x/volantis-docs/
   # analytics using busuanzi
   analytics: >
-    <span>本站总访问量为 <span id='busuanzi_value_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
-    <span>访客数为 <span id='busuanzi_value_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
+    <span>本站总访问量为 <span id='busuanzi_value_site_pv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true">78845</i></span> 次</span>
+    <span>访客数为 <span id='busuanzi_value_site_uv'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true">5688</i></span> 人</span>
   # site copyright
   copyright: '[Copyright © since 2017 XXX](/)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
@@ -787,7 +800,7 @@ plugins:
   ######## Plugins for Count:
   # npm i hexo-wordcount
   wordcount:
-    enable: #true
+    enable: true #true
 
   busuanzi:
     enable: #true
@@ -840,7 +853,7 @@ plugins:
   # https://aplayer.js.org/#/zh-Hans/
   # APlayer config: https://github.com/metowolf/MetingJS
   aplayer:
-    enable: #true
+    enable: true #true
     source: meting # meting：从 MetingJS API 获取音乐数据（API经常不稳定） / local：本地音乐数据
     # ============= meting begin =============
     # Required
@@ -887,7 +900,7 @@ plugins:
   #   icon: fa-solid fa-moon # 可自定义
   #   toggle: darkmode
   darkmode:
-    enable: #true
+    enable: true #true
 
   # 旧版 Internet Explorer 淘汰行动
   # https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support
@@ -917,7 +930,7 @@ plugins:
     # avatarPla: #自定义头像url的输入框的占位符
     # motion: #加载动画的开关，1为开，0为关，默认为开
     # bgImg: #说说输入框背景图片url
-    # color1: #说说背景颜色1&按钮颜色1
+    # color1: #说说背景颜色1&按钮颜色
     # color2: #说说背景颜色2&按钮颜色2
     # color3: #说说字体颜色
     # cssUrl: #自定义css接口
@@ -1212,7 +1225,7 @@ color_scheme:
 ############################### Custom css ############################### > start
 custom_css:
   cursor:
-    enable: #true
+    enable: true #true
     text: volantis-static/media/cursor/text.png # https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/text.png
     pointer: volantis-static/media/cursor/pointer.png # https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/pointer.png
     default: volantis-static/media/cursor/left_ptr.png # https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/left_ptr.png
@@ -1330,4 +1343,15 @@ structured_data:
       path: volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png
       width: 192
       height: 192
+live2d:
+  enable: false
+  scriptFrom: local
+  model:
+    use: live2d-widget-model-chitose #模型选择
+  display:
+    position: right  #模型位置
+    width: 150       #模型宽度
+    height: 300      #模型高度
+  mobile:
+    show: false      #是否在手机端显示
 ############################### Structured Data ############################### > end
